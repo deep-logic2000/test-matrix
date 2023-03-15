@@ -1,0 +1,109 @@
+.form-container {
+  margin-bottom: 30px;
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 80%;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.input-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  /* margin-bottom: 10px; */
+  gap: 30px;
+}
+
+.inputs-label {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: #000000bb;
+}
+
+input {
+  width: 15%;
+  outline: none;
+  border: 1px solid #6256ffbb;
+  border-radius: 5px;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.15s ease-in-out;
+  text-align: center;
+}
+
+input:focus {
+  border: 1px solid #2419c0;
+  box-shadow: 0 0 0 2px rgba(36, 25, 192, 0.25);
+}
+
+.button {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border-radius: 0.6em;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1;
+  padding: 5px 10px;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+.button:hover,
+.button:focus {
+  color: #fff;
+  outline: 0;
+}
+
+.button-submit {
+  color: #984ae0;
+  border: 2px solid #984ae0;
+  margin-bottom: 15px;
+}
+
+.button-submit:hover,
+.button-submit:focus {
+  box-shadow: 0 0 40px 40px #984ae0 inset;
+}
+
+.button-reset {
+  color: #f54141f6;
+  border: 2px solid #f54141f6;
+}
+
+.button-reset:hover,
+.button-reset:focus {
+  box-shadow: 0 0 40px 40px #f54141f6 inset;
+}
+
+.error-text {
+    color: #f54141f6;
+    font-size: 10px;
+    font-weight: bold;
+    margin-top: 2px;
+}

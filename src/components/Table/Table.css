@@ -1,0 +1,91 @@
+.container {
+  max-width: 100%;
+  overflow-x: scroll;
+}
+
+table {
+  width: 100%;
+  background-color: rgb(217, 255, 255);
+  border-spacing: 0;
+  table-layout: auto;
+}
+
+.container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.container::-webkit-scrollbar-track {
+  height: 8px;
+  box-shadow: inset 0 0 8px rgba(204, 203, 253, 0.877);
+  background: #c0cae7;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background-color: rgba(15, 2, 134, 0.637);
+  border-radius: 5px;
+}
+
+thead {
+  background-color: #9bafe5;
+  box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+  color: #fff;
+}
+thead tr th {
+  padding: 5px;
+  border-right: 1px solid #c1c1e0;
+}
+
+.row-color-1 {
+  background-color: #ebebeb;
+}
+
+.row-color-2 {
+  background-color: #f7f7f7;
+}
+
+table td {
+  background-color: #fff;
+  border: 1px solid #f3f3f3;
+  padding: 2px 4px;
+  min-width: 94px;
+}
+
+tr > th:first-child,
+tr > td:first-child {
+  position: sticky;
+  left: 0;
+  padding: 6px 9px;
+  min-width: 95px;
+}
+
+tr:nth-child(odd) td {
+  background: #f7f7f7;
+}
+
+tr:nth-child(even) td {
+  background: #ebebeb;
+}
+
+thead tr:first-child > th {
+  background: #9bafe5;
+}
+
+thead > tr:last-child,
+tfoot > tr:last-child {
+  background: #d6d6d8;
+}
+
+tr > th:last-child,
+tr > td:last-child {
+  position: sticky;
+  right: 0;
+  font-weight: bold;
+}
+
+tr:nth-child(odd) td {
+  background: #f7f7f7;
+}
+
+tr:nth-child(even) td {
+  background: #ebebeb;
+}

@@ -1,0 +1,36 @@
+.row-title {
+  font-size: 13px;
+  font-weight: bold;
+  color: #000000bb;
+}
+
+.row-title:hover .icon-wrapper {
+  display: block;
+}
+
+.row-color-1 {
+  background-color: #ebebeb;
+}
+
+.row-color-2 {
+  background-color: #f7f7f7;
+}
+
+table tfoot tr .row-average {
+  font-size: 13px;
+  font-weight: bold;
+  color: #000000bb;
+  background-color: #d3d3d3;
+}
+
+.icon-wrapper {
+  width: 15px;
+  height: 15px;
+  margin-left: 15px;
+  display: none;
+}
+
+.row__name--wrapper {
+  display: flex;
+  align-items: center;
+}

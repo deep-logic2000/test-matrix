@@ -1,0 +1,46 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 13px;
+}
+
+.table-wrapper {
+  /* overflow-x: scroll; */
+  max-width: 95%;
+  position: relative;
+}
+
+.btn-add {
+  box-sizing: border-box;
+  background-color: transparent;
+  border-radius: 0.6em;
+  cursor: pointer;
+  display: flex;
+  align-self: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  padding: 4px 8px;
+  text-decoration: none;
+  text-align: center;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  color: #49a4ee;
+  border: 1px solid #49a4ee;
+  margin-top: 5px;
+}
+
+.btn-add:hover,
+.btn-add:focus {
+  color: #fff;
+  outline: 0;
+  box-shadow: 0 0 40px 40px #49a4ee inset;
+}
+
+.button-submit:hover,
+.button-submit:focus {
+  box-shadow: 0 0 40px 40px #984ae0 inset;
+}
