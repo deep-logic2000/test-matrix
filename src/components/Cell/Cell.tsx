@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, memo, useEffect } from "react";
 
 import { useAppContext } from "../../hooks/useAppContext";
 import { useTableContext } from "../../hooks/useTableContext";
@@ -14,7 +14,7 @@ export type TypeCell = {
   amount: CellValue;
 };
 
-const Cell: FC<TypeCell> = (props: TypeCell) => {
+const Cell: FC<TypeCell> = memo((props: TypeCell) => {
   const { id, amount } = props;
 
   const { handleCellClick } = useAppContext();
@@ -31,8 +31,14 @@ const Cell: FC<TypeCell> = (props: TypeCell) => {
         cancelHighlightCells();
         handleMouseOut(e);
       }}
-      style={{ background: activeCells?.includes(id) ? "#b4ff89" : "inherit" }}>
-      {amount}{" "}
+      style={{
+        background: activeCells?.includes(id)
+          ? "#b4ff89"
+          : expandRowsIds?.includes(id) && sumValuesOfRow
+          ? "linear-gradient(0deg, rgba(89,165,235,1) 12%, rgba(150,218,255,1) 49%)"
+          : "inherit",
+      }}>
+      {amount.toString().padStart(3, "0")}{" "}
       {expandRowsIds?.includes(id) && sumValuesOfRow && (
         <span className="expanded-text">
           &#8594; {((amount * 100) / sumValuesOfRow).toFixed(1)} %
@@ -40,6 +46,6 @@ const Cell: FC<TypeCell> = (props: TypeCell) => {
       )}
     </td>
   );
-};
+});
 
 export default Cell;

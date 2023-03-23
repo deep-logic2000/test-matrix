@@ -1,10 +1,9 @@
-import React, { FC, useState } from "react";
+import React, { FC, useCallback, useState, memo, useMemo, useEffect } from "react";
 import Cell from "../Cell/Cell";
 import type { CellId } from "../Cell/Cell";
-import { ITableRow } from "../Table/Table";
 import type { TypeCell } from "../Cell/Cell";
 
-import { RowContext } from "../../helpers/contexts/RowContext";
+import RowProvider from "../../providers/RowProvider";
 import { useTableContext } from "../../hooks/useTableContext";
 import { useAppContext } from "../../hooks/useAppContext";
 
@@ -12,13 +11,16 @@ import { ReactComponent as Delete } from "../../assets/images/icon-delete.svg";
 
 import "./Row.css";
 
-export interface IRowProps extends ITableRow {
+export interface ITableRow {
   rowIndex: number;
+  name: string;
+  values: TypeCell[];
 }
 
-const Row: FC<IRowProps> = (props: IRowProps) => {
-  const [expandRowsIds, setExpandRowsIds] = useState<CellId[]>([]);
-  const { name, values, rowIndex } = props;
+const Row: FC<ITableRow> = memo((props) => {
+  const name = props.name;
+  const values = props.values;
+  const rowIndex = props.rowIndex;
 
   const { removeRow } = useAppContext();
   const { defineActiveCells } = useTableContext();
@@ -27,20 +29,6 @@ const Row: FC<IRowProps> = (props: IRowProps) => {
     return acc + value.amount;
   }, 0);
 
-  const handleMouseOver = (id: number, amount: number) => {
-    if (!id) return;
-    const isOnSumCell = !values.some((value: TypeCell) => value.id === id);
-    if (isOnSumCell) {
-      const expandRows = values.map((cellObj: TypeCell) => cellObj.id);
-      setExpandRowsIds(expandRows);
-    } else {
-      defineActiveCells(amount);
-    }
-  };
-
-  const handleMouseOut = () => {
-    setExpandRowsIds([]);
-  };
 
   return (
     <tr
@@ -60,15 +48,9 @@ const Row: FC<IRowProps> = (props: IRowProps) => {
           )}
         </div>
       </td>
-      <RowContext.Provider
-        value={{
-          expandRowsIds,
-          handleMouseOver,
-          handleMouseOut,
-          sumValuesOfRow,
-        }}>
+      <RowProvider values={values} defineActiveCells={defineActiveCells} >
         {values &&
-          values.map((cellObj: TypeCell, index: number) => (
+          values.map((cellObj, index) => (
             <Cell
               id={cellObj.id}
               amount={cellObj.amount}
@@ -80,9 +62,9 @@ const Row: FC<IRowProps> = (props: IRowProps) => {
           amount={Number(sumValuesOfRow.toFixed(1))}
           key={`row-${name}-${sumValuesOfRow}`}
         />
-      </RowContext.Provider>
+      </RowProvider>
     </tr>
   );
-};
+});
 
 export default Row;

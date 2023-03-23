@@ -82,6 +82,10 @@ tr > td:last-child {
   font-weight: bold;
 }
 
+tr > td:last-child:hover .page-content div:has( .img-caption ) {
+  color: red
+}
+
 tr:nth-child(odd) td {
   background: #f7f7f7;
 }

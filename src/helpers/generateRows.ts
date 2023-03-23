@@ -4,6 +4,7 @@ export const generateRows = (
   beginRowNumber = 0 as number
 ) => {
   const arrOfRows = [];
+  
   const generateValues = (indexOfRow: number) => {
     const arrOfRowValues = [];
     for (let j = 0; j < Number(columnsQuantity); j++) {
