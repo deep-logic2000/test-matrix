@@ -1,4 +1,4 @@
-# Test task for Memcrab
+# Matrix test task
 ## Deploy
 https://test-matrix.vercel.app/
 ## Screenshots:
@@ -7,6 +7,6 @@ https://test-matrix.vercel.app/
 ![Screenshot_4](https://user-images.githubusercontent.com/95580392/225442261-39b71c5c-2231-4d26-a28a-0e6621e2f94d.png)
 
 ## Stack
-JavaScript
-TypeScript
-React
+- JavaScript
+- TypeScript
+- React
